@@ -32,14 +32,19 @@ body {
 }
 
 .card {
-  width: 90%;
-  max-width: 600px;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(188, 82, 181, 0.423);
+  width: 105%;            
+  max-width: 600px;     
+  margin: auto;      
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: 28px;
+  box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.06),
+              0 30px 60px -30px rgba(79, 70, 229, 0.1);
   padding: 50px 44px;
   text-align: center;
   position: relative;
-  overflow: hidden; 
 }
 
 /* --- ESTILOS PARA LA CARTA COMPLETA  --- */
