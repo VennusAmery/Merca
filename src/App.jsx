@@ -1,38 +1,39 @@
 import { useState, useCallback, useEffect, useRef } from "react";
 import "./App.css";
 
+const baseUrl = import.meta.env.BASE_URL;
+
 const STEPS = {
   inicio: {
     id: "inicio",
     texto: "¿Quieres saber de que trata esto?",
-    imagen: "/img/feliz.jpg",
+    imagen: `${baseUrl}img/feliz.jpg`,
     si: "pregunta2",
   },
   pregunta2: {
     id: "pregunta2",
     texto: "¿Realmente quieres saber?",
-    imagen: "/img/feliz2.jpg",
+    imagen: `${baseUrl}img/feliz2.jpg`,
     si: "pregunta3",
   },
   pregunta3: {
     id: "pregunta3",
     texto: "¿Crees que esto termine bien?",
-    imagen: "/img/feliz3.jpg",
+    imagen: `${baseUrl}img/feliz3.jpg`,
     si: "finalFeliz",
   },
-
   persuasion: {
     id: "persuasion",
     texto: "¡Grosero!... Mira la carita de este perrito, sé que quieres decir que sí 🥺",
-    imagen: "https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?q=80&w=600&auto=format&fit=crop",
-    si: null, // Regresará dinámicamente al paso donde se quedó
+    imagen: "https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?q=80&w=600&auto=format&fit=crop", 
+    si: null, 
   },
   finalFeliz: {
     id: "finalFeliz",
     texto: `El consumidor olvidará lo que dijiste,
     pero jamás olvidará lo que le has hecho sentir
     (Eric Kandel)`,    
-    imagen: "/img/video.gif",     
+    imagen: `${baseUrl}img/video.gif`,     
     isCarta: true, 
     si: null,
   },
