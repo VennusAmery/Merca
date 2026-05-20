@@ -22,11 +22,13 @@ body {
 
 .app-wrapper {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: center; 
+  align-items: center;   
   width: 100vw;
   height: 100vh;
   overflow: hidden; 
+  padding: 20px;
+  box-sizing: border-box; 
 }
 
 .card {
