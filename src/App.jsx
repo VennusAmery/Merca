@@ -20,7 +20,7 @@ const STEPS = {
     imagen: "/img/feliz3.jpg",
     si: "finalFeliz",
   },
-  // Este paso ahora funciona como el "Modo Chantaje" activado por el botón NO
+
   persuasion: {
     id: "persuasion",
     texto: "¡Grosero!... Mira la carita de este perrito, sé que quieres decir que sí 🥺",
@@ -77,9 +77,9 @@ function calculateEscurridizoPosition(mx, my, bx, by) {
 
 export default function App() {
   const [currentId,  setCurrentId]  = useState("inicio");
-  const [prevSiId,   setPrevSiId]   = useState(null); // Guarda el paso para saber a dónde avanzar al presionar Sí
+  const [prevSiId,   setPrevSiId]   = useState(null);
   const [noPos,      setNoPos]      = useState(null); 
-  const [noClicks,   setNoClicks]   = useState(0);    // Cuenta cuántas veces han logrado clickear el "No"
+  const [noClicks,   setNoClicks]   = useState(0);   
 
   const noPosRef = useRef(null);
   const isFinal      = currentId === "finalFeliz";
@@ -124,29 +124,25 @@ export default function App() {
   }, [noPos]);
 
   const handleSi = () => {
-    // Si estamos en modo persuasión/perrito, avanzamos al paso que le correspondía a la pregunta original
     const target = isPersuasion ? prevSiId : step.si;
     if (!target) return;
     
     setCurrentId(target);
     setNoPos(null);
-    setNoClicks(0); // Reiniciamos el tamaño del botón para la siguiente pregunta
+    setNoClicks(0); 
     setPrevSiId(null);
   };
 
   const handleNoClick = () => {
-    // SOLO SI LOGRAN DARLE CLICK AL BOTÓN "NO":
     const nuevosClicks = noClicks + 1;
     setNoClicks(nuevosClicks);
     
-    // Si no estábamos ya en persuasión, guardamos a dónde iba a mandar el "Sí" de esta pregunta
     if (!isPersuasion) {
       setPrevSiId(step.si);
     }
     
-    // Cambiamos la tarjeta al perrito triste de persuasión
     setCurrentId("persuasion");
-    setNoPos(null); // Reseteamos la posición fija para que vuelva a aparecer dentro de la fila
+    setNoPos(null); 
   };
 
   const noStyle = noPos
@@ -159,7 +155,6 @@ export default function App() {
       }
     : {};
 
-  // 📈 El tamaño del botón SÍ crece un 40% cada vez que logran clickear el "No"
   const siScale = 1 + noClicks * 0.4;
   const siStyle = {
     transform: `scale(${siScale})`,
