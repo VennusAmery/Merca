@@ -1,8 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght=400;600&display=swap');
 
-:root {
-  --primary-color: #6366f1; 
-  --background-color: #f1f5f9; 
+#root {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--background-color);
 }
 
 * {
@@ -18,16 +33,6 @@ body {
   overflow: hidden; 
   width: 100vw;
   height: 100vh;
-}
-
-/* --- TRUCO DE REINICIO GLOBAL --- */
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  background-color: var(--background-color);
 }
 
 /* --- CONTENEDOR CONTRA TODO FALLO --- */
